@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="formApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Form Fun</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css" charset="utf-8">
+
+  </head>
+  <body ng-controller="formCtrl as form">
+
+    <h4 ng-show="form.users.length > 0">Our users:</h4>
+    <p class="users" ng-show="form.users.length > 0">{{form.users}}</p>
+    <p class="error" ng-show="form.error">{{form.error}}</p>
+
+    <form name="myForm" class="myForm" ng-submit="form.submit(myForm)" novalidate>
+      <label for="username">Username</label>
+      <input type="text" name="username" ng-minlength=3 ng-maxlength=12 ng-model="form.username" required>
+      <br>
+      <span class="warning-message" ng-show="myForm.username.$invalid && myForm.username.$touched && myForm.username.$dirty">Please enter a valid username between 3 and 12 characters.</span>
+      <br>
+      <label for="password">Password</label>
+      <input type="password" name="password" ng-minlength=3 ng-maxlength=12 ng-model="form.password" required>
+      <br>
+      <span class="warning-message" ng-show="myForm.password.$invalid && myForm.password.$touched && myForm.password.$dirty">Please enter a valid password between 3 and 12 characters.</span>
+      <br>
+      <label for="email">Email</label>
+      <input type="email" name="email" ng-model="form.email" required>
+      <br>
+      <span class="warning-message" ng-show="myForm.email.$invalid && myForm.email.$touched && myForm.email.$dirty">Please enter a valid email address.</span>
+      <br>
+      <label for="zip">Zip Code</label>
+      <input type="text" name="zip" ng-model="form.zipcode" ng-pattern="/^(\d{5})?$/" required>
+      <br>
+      <span class="warning-message" ng-show="myForm.zipcode.$invalid && myForm.zipcode.$touched && myForm.zipcode.$dirty">Please enter a valid zip code.</span>
+      <br>
+      <input type="submit" name="button" value="submit"></input>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="controllers.js"></script>
+  </body>
+</html>

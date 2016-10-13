@@ -1,0 +1,22 @@
+form {
+  margin: 0 10% 0 10%;
+}
+
+h4,
+.users,
+.error {
+  margin-left: 5%;
+}
+
+.myForm input.ng-invalid.ng-dirty {
+   background-color: #FA787E;
+ }
+
+ .myForm input.ng-valid.ng-dirty {
+   background-color: #78FA89;
+ }
+
+.warning-message,
+.error {
+  color: red;
+}
